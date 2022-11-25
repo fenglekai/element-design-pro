@@ -4,13 +4,13 @@
 
 <img width="800" alt="Element Plus" src="./src/assets/logo.png">
 
-<img src="/home/bobby/Documents/flk-code/element-plus-vite-starter/public/preview-1.png" alt="preview-1" style="zoom:75%;" />
+<img src="./public/preview-1.png" alt="preview-1" style="zoom:75%;" />
 
-<img src="/home/bobby/Documents/flk-code/element-plus-vite-starter/public/preview-2.png" alt="preview-2" style="zoom:75%;" />
+<img src="./public/preview-2.png" alt="preview-2" style="zoom:75%;" />
 
-<img src="/home/bobby/Documents/flk-code/element-plus-vite-starter/public/preview-3.png" alt="preview-3" style="zoom:75%;" />
+<img src="./public/preview-3.png" alt="preview-3" style="zoom:75%;" />
 
-- Preview: <https://vite-starter.element-plus.org>
+- Preview:
 
 > 这是基于element-plus-vite-starter进一步开发的模板
 
