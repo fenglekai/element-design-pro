@@ -1,6 +1,6 @@
 import { ElBacktop, ElConfigProvider, ElScrollbar } from "element-plus";
 import { defineComponent } from "vue";
-import { RouterView } from "vue-router";
+import { RouterView, useRoute } from "vue-router";
 import { useConfigStore } from "~/store";
 import DefaultConfig from "../DefaultConfig.vue";
 import BaseHeader from "./BaseHeader.vue";
@@ -98,7 +98,6 @@ export const Tag = defineComponent({
       return (
         <SideLayout>
           <RouterView></RouterView>
-          {import.meta.env.MODE == "development" ? <DefaultConfig /> : null}
           <ElBacktop target=".ep-scrollbar__wrap"></ElBacktop>
           {configStore.showFooter ? <BaseFooter /> : null}
         </SideLayout>
@@ -108,7 +107,6 @@ export const Tag = defineComponent({
       return (
         <HeaderLayout>
           <RouterView></RouterView>
-          {import.meta.env.MODE == "development" ? <DefaultConfig /> : null}
           <ElBacktop target=".ep-scrollbar__wrap"></ElBacktop>
           {configStore.showFooter ? <BaseFooter /> : null}
         </HeaderLayout>
@@ -118,7 +116,7 @@ export const Tag = defineComponent({
       return (
         <MixLayout>
           <RouterView></RouterView>
-          {import.meta.env.MODE == "development" ? <DefaultConfig /> : null}
+          
           <ElBacktop target=".ep-scrollbar__wrap"></ElBacktop>
           {configStore.showFooter ? <BaseFooter /> : null}
         </MixLayout>
@@ -131,9 +129,12 @@ export const Tag = defineComponent({
 const BaseLayout = defineComponent({
   setup() {
     console.log(import.meta.env.MODE);
-
+    const route = useRoute()
+    console.log(route.name);
+    
     return () => (
       <ElConfigProvider namespace="ep">
+        {import.meta.env.MODE == "development" && route.name != 'login' ? <DefaultConfig /> : null}
         <RouterView></RouterView>
       </ElConfigProvider>
     );

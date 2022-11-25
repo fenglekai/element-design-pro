@@ -12,6 +12,7 @@ import { reactive, ref } from "vue";
 import { User, Lock } from "@element-plus/icons-vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "~/store";
+import { isDark } from "~/composables";
 
 const router = useRouter();
 const userStore = useUserStore();
@@ -60,12 +61,12 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 </script>
 
 <template>
-  <div class="container-wrapper">
+  <div class="container-wrapper" bg-gray-1 dark:bg-gray-9>
     <div class="login-left">
       <img src="../../assets/logo.png" alt="logo" width="400" />
       <p class="subtitle" m-0>简洁的Element Plus中后台模板</p>
     </div>
-    <div class="login-right">
+    <div :class="['login-right', isDark ? 'dark-bg' : 'light-bg']">
       <ElTabs v-model="activeName">
         <ElTabPane name="1">
           <template #label>
@@ -111,10 +112,15 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 </template>
 
 <style lang="scss" scoped>
+.dark-bg {
+  background-color: rgba(18,18,18,0.5);
+}
+.light-bg {
+  background-color: rgba(255,255,255,0.5);
+}
 .container-wrapper {
   background-image: url("~/assets/login-img.png");
   background-repeat: no-repeat;
-  background-position: center;
   background-size: 100%;
   height: 100vh;
   display: flex;
@@ -127,7 +133,6 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   }
   .login-right {
     flex: 1;
-    background-color: rgba(255, 255, 255, 0.5);
     display: inherit;
     flex-direction: column;
     justify-content: center;

@@ -61,45 +61,44 @@ export default defineComponent({
     });
 
     const MessageConfig = (
-      <div class={styles.headerItem}>
-        <ElPopover
-          width={350}
-          offset={30}
-          trigger="click"
-          transition="ep-fade-in-linear"
-          v-slots={{
-            reference: () => (
+      <ElPopover
+        width={350}
+        trigger="click"
+        transition="ep-fade-in-linear"
+        v-slots={{
+          reference: () => (
+            <div class={styles.headerItem}>
               <ElBadge value={200} max={99} style={{ zIndex: 99 }}>
                 <ElIcon>
                   <Bell />
                 </ElIcon>
               </ElBadge>
-            ),
-          }}
-        >
-          <ElTabs model-value={messageTab.value}>
-            <ElTabPane
-              name="notice"
-              v-slots={{
-                label: () => (
-                  <div style={{ width: "322px" }} class={"text-center"}>
-                    消息
-                  </div>
-                ),
-              }}
-            >
-              <MessageList />
-            </ElTabPane>
-          </ElTabs>
-          <div
-            style={{ borderTop: "1px solid var(--ep-border-color)" }}
-            class={"flex justify-center mt-6 pt-3"}
+            </div>
+          ),
+        }}
+      >
+        <ElTabs model-value={messageTab.value}>
+          <ElTabPane
+            name="notice"
+            v-slots={{
+              label: () => (
+                <div style={{ width: "322px" }} class={"text-center"}>
+                  消息
+                </div>
+              ),
+            }}
           >
-            <ElButton text>清空消息</ElButton>
-            <ElButton text>查看更多</ElButton>
-          </div>
-        </ElPopover>
-      </div>
+            <MessageList />
+          </ElTabPane>
+        </ElTabs>
+        <div
+          style={{ borderTop: "1px solid var(--ep-border-color)" }}
+          class={"flex justify-center mt-6 pt-3"}
+        >
+          <ElButton text>清空消息</ElButton>
+          <ElButton text>查看更多</ElButton>
+        </div>
+      </ElPopover>
     );
 
     const logout = () => {
@@ -108,13 +107,13 @@ export default defineComponent({
     };
 
     const UserInfo = (
-      <div class={styles.headerItemHover}>
+      <div class={styles.headerItemHover} onClick={logout}>
         <ElTooltip
           content="退出登录"
           transition="ep-fade-in-linear"
           offset={30}
         >
-          <ElIcon onClick={logout}>
+          <ElIcon>
             <SwitchButton />
           </ElIcon>
         </ElTooltip>
