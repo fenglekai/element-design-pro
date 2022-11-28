@@ -10,7 +10,7 @@
 
 <img src="./public/preview-3.png" alt="preview-3" style="zoom:75%;" />
 
-- [Preview](http://feng-lekai.gitee.io/element-design-pro)
+- Preview: http://feng-lekai.gitee.io/element-design-pro
 
 > 这是基于element-plus-vite-starter进一步开发的模板
 
