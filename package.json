@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
+    "build:pre": "vite build --mode preview",
     "generate": "vite-ssg build",
     "preview": "vite preview",
     "typecheck": "vue-tsc --noEmit"

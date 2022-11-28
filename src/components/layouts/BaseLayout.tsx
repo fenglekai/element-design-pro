@@ -134,7 +134,7 @@ const BaseLayout = defineComponent({
     
     return () => (
       <ElConfigProvider namespace="ep">
-        {import.meta.env.MODE == "development" && route.name != 'login' ? <DefaultConfig /> : null}
+        {import.meta.env.MODE != "production" && route.name != 'login' ? <DefaultConfig /> : null}
         <RouterView></RouterView>
       </ElConfigProvider>
     );
