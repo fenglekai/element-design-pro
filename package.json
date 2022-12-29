@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "echarts": "^5.4.0",
+    "element-china-area-data": "^5.0.2",
     "element-plus": "^2.2.22",
     "pinia": "^2.0.23",
     "vue": "^3.2.36",

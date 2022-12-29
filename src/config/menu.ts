@@ -42,6 +42,10 @@ const menus: MenuConfig = [
         title: "分析页",
         index: "/base",
       },
+      {
+        title: "个人页",
+        index: "/owner",
+      },
     ],
   },
   {

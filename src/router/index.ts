@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HelloWorldVue from "~/components/HelloWorld.vue";
-import { Tag } from "~/components/layouts/BaseLayout";
 import BaseVue from "~/view/dashboard/Base.vue";
 import PageNotFound from "~/view/exception/PageNotFound.vue";
 import LoginIndexVue from "~/view/login/Index.vue";
+import OwnerIndexVue from "~/view/owner/Index.vue";
 import { useUserStore } from "~/store";
 import { ElMessage } from "element-plus";
 
@@ -11,10 +11,10 @@ const routes = [
   {
     name: "layout",
     path: "/",
-    component: Tag,
     children: [
       { name: "index", path: "", component: HelloWorldVue },
       { name: "base", path: "base", component: BaseVue },
+      { name: "owner", path: "owner", component: OwnerIndexVue },
       { name: "404", path: "404", component: PageNotFound },
     ],
   },
