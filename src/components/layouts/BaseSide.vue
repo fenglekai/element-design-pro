@@ -5,6 +5,15 @@ import logo from "~/assets/logo.png";
 import vueLogo from "~/assets/small-logo.png";
 import { useConfigStore } from "~/store";
 
+const props = defineProps({
+  showLine: {
+    type: Boolean,
+    default() {
+      return true;
+    },
+  },
+});
+
 const isCollapse = ref(false);
 const logoPath = ref(logo);
 const configStore = useConfigStore();
@@ -22,7 +31,12 @@ const handleCollapse = () => {
 </script>
 
 <template>
-  <aside class="sidebar">
+  <aside
+    class="sidebar"
+    :style="
+      props.showLine ? { borderRight: '1px solid var(--ep-border-color)' } : {}
+    "
+  >
     <div flex justify-center v-if="configStore.layoutModel == 0">
       <img
         alt="Vue logo"
@@ -56,7 +70,6 @@ const handleCollapse = () => {
 <style lang="scss" scoped>
 .sidebar {
   position: relative;
-  border-right: 1px solid var(--ep-border-color);
 }
 .ep-menu-vertical:not(.ep-menu--collapse) {
   width: 200px;

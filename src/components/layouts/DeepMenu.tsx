@@ -54,11 +54,15 @@ const DeepMenu = defineComponent({
       });
       return result;
     };
+    const handleSelect = (key: string, keyPath: string[]) => {
+      console.log(key, keyPath)
+    }
 
     return () => (
       <ElMenu
         class="border-none"
         style={{ backgroundColor: "transparent" }}
+        onSelect={handleSelect}
       >
         {...configMenu(props.config)}
       </ElMenu>

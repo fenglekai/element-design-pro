@@ -1,7 +1,7 @@
 import { ElBacktop, ElConfigProvider, ElScrollbar } from "element-plus";
-import { defineComponent } from "vue";
+import { defineComponent, onMounted, ref, watch } from "vue";
 import { RouterView, useRoute } from "vue-router";
-import { useConfigStore } from "~/store";
+import { useConfigStore, useWindowStore } from "~/store";
 import DefaultConfig from "../DefaultConfig.vue";
 import BaseHeader from "./BaseHeader.vue";
 import BaseSide from "./BaseSide.vue";
@@ -17,7 +17,36 @@ export const BaseFooter = defineComponent({
   },
 });
 
-export const Tag = defineComponent({
+const MobileLayout = defineComponent({
+  render() {
+    const configStore = useConfigStore();
+    return (
+      <>
+        <div style={{ height: "100vh" }}>
+          <ElScrollbar class={"w-full h-full bg-gray-1 dark:bg-gray-9"}>
+            {configStore.fixedHeader ? (
+              <header style={{ height: "60px", visibility: "hidden" }}></header>
+            ) : null}
+            <BaseHeader
+              class={[
+                configStore.fixedHeader ? "absolute top-0 z-1" : null,
+                configStore.headerBackground ? styles.headerBackground : null,
+              ]}
+              style={{
+                width: configStore.fixedHeader ? "calc(100% - 20px)" : null,
+              }}
+            />
+            <RouterView></RouterView>
+            <ElBacktop target=".ep-scrollbar__wrap"></ElBacktop>
+            {configStore.showFooter ? <BaseFooter /> : null}
+          </ElScrollbar>
+        </div>
+      </>
+    );
+  },
+});
+
+const Tag = defineComponent({
   render() {
     const configStore = useConfigStore();
 
@@ -116,7 +145,6 @@ export const Tag = defineComponent({
       return (
         <MixLayout>
           <RouterView></RouterView>
-          
           <ElBacktop target=".ep-scrollbar__wrap"></ElBacktop>
           {configStore.showFooter ? <BaseFooter /> : null}
         </MixLayout>
@@ -129,13 +157,35 @@ export const Tag = defineComponent({
 const BaseLayout = defineComponent({
   setup() {
     console.log(import.meta.env.MODE);
-    const route = useRoute()
+    const route = useRoute();
     console.log(route.name);
-    
+
+    const windowStore = useWindowStore();
+
+    const isMobile = ref(false);
+
+    watch(windowStore, (newVal) => {
+      if (newVal.screenWidth < 768) {
+        isMobile.value = true;
+      } else {
+        isMobile.value = false;
+      }
+    });
+
+    onMounted(() => {
+      if (windowStore.screenWidth < 768) {
+        isMobile.value = true;
+      } else {
+        isMobile.value = false;
+      }
+    })
+
     return () => (
       <ElConfigProvider namespace="ep">
-        {import.meta.env.MODE != "production" && route.name != 'login' ? <DefaultConfig /> : null}
-        <RouterView></RouterView>
+        {import.meta.env.MODE != "production" && route.name != "login" ? (
+          <DefaultConfig />
+        ) : null}
+        {isMobile.value ? <MobileLayout /> : <Tag />}
       </ElConfigProvider>
     );
   },

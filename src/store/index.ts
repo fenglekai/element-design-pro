@@ -85,6 +85,8 @@ export const useUserStore = defineStore("user", {
     return {
       username: "",
       role: "",
+      screenWidth: "",
+      screenHeight: "",
     };
   },
   getters: {
@@ -122,6 +124,26 @@ export const useUserStore = defineStore("user", {
       sessionStorage.removeItem("role");
       localStorage.removeItem("username");
       localStorage.removeItem("role");
+    },
+  },
+});
+
+export const useWindowStore = defineStore("window", {
+  state() {
+    return {
+      screenWidth: 0,
+      screenHeight: 0,
+    };
+  },
+  getters: {
+    getSize(state) {
+      return state;
+    },
+  },
+  actions: {
+    setSize(val: { screenWidth: number; screenHeight: number }) {
+      this.screenWidth = val.screenWidth;
+      this.screenHeight = val.screenHeight;
     },
   },
 });

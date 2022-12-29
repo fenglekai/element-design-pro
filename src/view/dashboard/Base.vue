@@ -248,7 +248,7 @@ const barOption2 = {
 
 <template>
   <ElRow px-6 pt-6 w-full :gutter="24">
-    <ElCol mb-4 :span="12">
+    <ElCol mb-4 :span="12" :xs="24">
       <ElCard shadow="hover">
         <div font-bold mb-4>
           <span>资产配置达成</span>
@@ -256,7 +256,7 @@ const barOption2 = {
         <BaseChartVue :option="pieOption" chartId="pieChart" />
       </ElCard>
     </ElCol>
-    <ElCol mb-4 :span="12">
+    <ElCol mb-4 :span="12" :xs="24">
       <ElCard shadow="hover">
         <div font-bold mb-4>
           <span>年销量统计</span>
@@ -264,7 +264,7 @@ const barOption2 = {
         <BaseChartVue :option="barOption" chartId="barChart" />
       </ElCard>
     </ElCol>
-    <ElCol mb-4 :span="16">
+    <ElCol mb-4 :span="16" :xs="24">
       <ElCard shadow="hover" :body-style="{ padding: 0 }">
         <template #header>
           <div flex justify-between items-center>
@@ -275,7 +275,7 @@ const barOption2 = {
         <ProductTable />
       </ElCard>
     </ElCol>
-    <ElCol mb-4 :span="8">
+    <ElCol mb-4 :span="8" :xs="24">
       <ElCard shadow="hover">
         <div font-bold mb-4>
           <span>年度收益</span>
@@ -292,7 +292,7 @@ const barOption2 = {
         <BaseTabs />
       </ElCard>
     </ElCol>
-    <ElCol mb-4 :span="12">
+    <ElCol mb-4 :span="12" :xs="24">
       <ElCard shadow="hover">
         <div font-bold mb-4>
           <span>年度趋势</span>
@@ -300,7 +300,7 @@ const barOption2 = {
         <BaseChartVue :option="lineOption" chartId="lineChartTwo" />
       </ElCard>
     </ElCol>
-    <ElCol mb-4 :span="12">
+    <ElCol mb-4 :span="12" :xs="24">
       <ElCard shadow="hover">
         <div font-bold mb-4>
           <span>年度趋势</span>

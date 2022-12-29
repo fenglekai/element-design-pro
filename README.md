@@ -22,16 +22,18 @@
 - vue-router
 - pinia
 - unocss
+- commitizen
+- cz-customizable
 
 ## 未来要集成的插件
 
-- commitizen
-- cz-customizable
 - vue-i18n
+- axios
+- mock
 
 ## 工具配置
 
-本项目推荐使用 VSCode 进行开发，项目里面已内置 VSCode 配置，包含推荐的插件和设置。（推荐来着Soybean Admin）
+本项目推荐使用 VSCode 进行开发，项目里面已内置 VSCode 配置，包含推荐的插件和设置。（推荐来自Soybean Admin）
 
 以下为推荐的插件：
 
@@ -119,3 +121,19 @@ See `src/styles/element/index.scss`.
 
 4. ...
 
+## `Git` 贡献提交规范
+
+- 参考 [vue](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fvuejs%2Fvue%2Fblob%2Fdev%2F.github%2FCOMMIT_CONVENTION.md) 规范 ([Angular](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fconventional-changelog%2Fconventional-changelog%2Ftree%2Fmaster%2Fpackages%2Fconventional-changelog-angular))
+  - `feat` 增加新功能
+  - `fix` 修复问题/BUG
+  - `style` 代码风格相关无影响运行结果的
+  - `perf` 优化/性能提升
+  - `refactor` 重构
+  - `revert` 撤销修改
+  - `test` 测试相关
+  - `docs` 文档/注释
+  - `chore` 依赖更新/脚手架配置修改等
+  - `workflow` 工作流改进
+  - `ci` 持续集成
+  - `types` 类型定义文件更改
+  - `wip` 开发中
