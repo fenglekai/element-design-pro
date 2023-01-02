@@ -51,7 +51,7 @@ onMounted(() => {
           windowStore.screenWidth < 768
         "
       />
-      <div style="cursor: pointer" @click="handleExpand">
+      <div v-if="windowStore.screenWidth < 768" style="cursor: pointer" @click="handleExpand">
         <i
           v-if="drawer"
           inline-flex

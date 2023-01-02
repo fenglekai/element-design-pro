@@ -185,7 +185,7 @@ const BaseLayout = defineComponent({
         {import.meta.env.MODE != "production" && route.name != "login" ? (
           <DefaultConfig />
         ) : null}
-        {isMobile.value ? <MobileLayout /> : <Tag />}
+        {isMobile.value ? <MobileLayout /> : route.name == "login" ? <RouterView></RouterView> : <Tag />}
       </ElConfigProvider>
     );
   },

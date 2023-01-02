@@ -3,6 +3,7 @@ import { onMounted, ref, watch } from "vue";
 import { useWindowStore } from "~/store";
 import Base from './Base.vue'
 import Safe from './Safe.vue'
+import Information from './Information.vue'
 
 const windowStore = useWindowStore();
 const tabPosition: any = ref("left");
@@ -34,7 +35,9 @@ onMounted(() => {
         <el-tab-pane label="安全设置">
             <Safe />
         </el-tab-pane>
-        <el-tab-pane label="新消息通知">新消息通知</el-tab-pane>
+        <el-tab-pane label="新消息通知">
+          <Information />
+        </el-tab-pane>
       </el-tabs>
     </el-card>
   </div>

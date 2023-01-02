@@ -14,6 +14,7 @@ import { defineComponent, ref } from "vue";
 import styles from "./index.module.scss";
 import { Bell, SwitchButton } from "@element-plus/icons-vue";
 import { useUserStore } from "~/store";
+import router from "~/router";
 
 export default defineComponent({
   render() {
@@ -103,7 +104,9 @@ export default defineComponent({
 
     const logout = () => {
       userStore.logout();
-      this.$root?.$router.push("/login");
+      // console.log(router);
+      router.push("/login")
+      // this.$root?.$router.push("/login");
     };
 
     const UserInfo = (
