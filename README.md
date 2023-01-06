@@ -119,7 +119,7 @@ See `src/styles/element/index.scss`.
 
    
 
-4. ...
+4. `element`变更主题色后次要颜色不会联动变更，需要手动设置。借鉴**[useElementPlusTheme](https://gitee.com/cheerwhy/use-element-plus-theme)**完成变更次要颜色，但还是和element默认提供的次要颜色不符合。
 
 ## `Git` 贡献提交规范
 

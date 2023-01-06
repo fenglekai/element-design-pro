@@ -4,13 +4,21 @@ import { Setting, Check } from "@element-plus/icons-vue";
 import { isDark, toggleDark } from "~/composables";
 import { useConfigStore } from "~/store";
 import { ElMessage } from "element-plus";
+import { setEpColor } from "~/utils/common";
 
 const configStore = useConfigStore();
 
+// mobile布局
 const drawer = ref(false);
 const targetSetting = () => {
   drawer.value = !drawer.value;
 };
+
+// 黑暗主题切换
+const handleDark = (bool: boolean) => {
+  toggleDark(bool)
+  setEpColor(configStore.primaryColor, bool);
+}
 
 // 主题色
 const checkColor = (e: MouseEvent | any) => {
@@ -28,9 +36,8 @@ const checkColor = (e: MouseEvent | any) => {
     }
     // 添加节点
     element.appendChild(child);
-    const ep = document.documentElement;
-    ep.style.setProperty("--ep-color-primary", element.style.backgroundColor);
     configStore.primaryColor = element.style.backgroundColor;
+    setEpColor(configStore.primaryColor, isDark.value);
   }
 };
 
@@ -61,19 +68,19 @@ const setNavbar = (num: number) => {
 
 // 固定Header
 const fixedHeaderSwitch = ref(configStore.fixedHeader);
-const fixedHeaderChange = (val: boolean) => {
+const fixedHeaderChange = (val: any) => {
   configStore.fixedHeader = val;
 };
 
 // 固定侧边菜单
 const fixedSideSwitch = ref(configStore.fixedSide);
-const fixedSideChange = (val: boolean) => {
+const fixedSideChange = (val: any) => {
   configStore.fixedSide = val;
 };
 
 // 自动分割菜单
 const isMixMenuSwitch = ref(configStore.isMixMenu);
-const isMixMenuChange = (val: boolean) => {
+const isMixMenuChange = (val: any) => {
   configStore.isMixMenu = val;
   if (val) {
     configStore.useMixMenu();
@@ -84,25 +91,25 @@ const isMixMenuChange = (val: boolean) => {
 
 // 顶栏半透明
 const headerBackgroundSwitch = ref(configStore.headerBackground);
-const headerBackgroundChange = (val: boolean) => {
+const headerBackgroundChange = (val: any) => {
   configStore.headerBackground = val;
 };
 
 // 顶栏
 const showHeaderSwitch = ref(configStore.showHeader);
-const showHeaderChange = (val: boolean) => {
+const showHeaderChange = (val: any) => {
   configStore.showHeader = val;
 };
 
 // 菜单
 const showSideSwitch = ref(configStore.showSide);
-const showSideChange = (val: boolean) => {
+const showSideChange = (val: any) => {
   configStore.showSide = val;
 };
 
 // 菜单
 const showFooterSwitch = ref(configStore.showFooter);
-const showFooterChange = (val: boolean) => {
+const showFooterChange = (val: any) => {
   configStore.showFooter = val;
 };
 
@@ -142,7 +149,7 @@ const copyConfig = () => {
           placement="top"
           transition="ep-fade-in-linear"
         >
-          <div class="white-theme" @click="toggleDark(false)">
+          <div class="white-theme" @click="handleDark(false)">
             <ElIcon class="theme-check" v-show="!isDark"><Check /></ElIcon>
           </div>
         </ElTooltip>
@@ -151,7 +158,7 @@ const copyConfig = () => {
           placement="top"
           transition="ep-fade-in-linear"
         >
-          <div class="dark-theme" @click="toggleDark(true)">
+          <div class="dark-theme" @click="handleDark(true)">
             <ElIcon class="theme-check" v-show="isDark"><Check /></ElIcon>
           </div>
         </ElTooltip>

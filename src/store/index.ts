@@ -2,6 +2,7 @@ import { createPinia, defineStore } from "pinia";
 import { Menu, menus } from "~/config/menu";
 import { Menu as IconMenu } from "@element-plus/icons-vue";
 import { toggleDark } from "~/composables";
+import { setEpColor } from "~/utils/common";
 
 const pinia = createPinia();
 
@@ -46,8 +47,7 @@ export const useConfigStore = defineStore("config", {
           }
         }
         toggleDark(config.isDark);
-        const ep = document.documentElement;
-        ep.style.setProperty("--ep-color-primary", config.primaryColor);
+        setEpColor(config.primaryColor, config.isDark);
       };
     },
   },
