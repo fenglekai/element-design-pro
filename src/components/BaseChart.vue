@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, Ref, ref, watch } from "vue";
 import * as echarts from "echarts";
-import {ECharts,EChartsOption} from "echarts/types/dist/echarts";
+import type { ECharts, EChartsOption } from "echarts/types/dist/echarts";
 import { debounce } from "~/utils/common";
 import { isDark } from "~/composables";
 
@@ -63,7 +63,7 @@ onMounted(() => {
   initEchart();
   const resizeObserver = new ResizeObserver(
     debounce(function () {
-      chart.resize()
+      chart.resize();
     }, 500)
   );
   resizeObserver.observe(chartWrapperDom.value);

@@ -23,7 +23,7 @@ const MobileLayout = defineComponent({
     return (
       <>
         <div style={{ height: "100vh" }}>
-          <ElScrollbar class={"w-full h-full bg-gray-1 dark:bg-gray-9"}>
+          <ElScrollbar class={"w-full h-full bg-gray-1 dark:bg-dark"}>
             {configStore.fixedHeader ? (
               <header style={{ height: "60px", visibility: "hidden" }}></header>
             ) : null}
@@ -77,7 +77,7 @@ const Tag = defineComponent({
           <>
             <div class={"flex"} style={{ height: "100vh" }}>
               {configStore.showSide ? <BaseSide /> : null}
-              <ElScrollbar class={"w-full h-full bg-gray-1 dark:bg-gray-9"}>
+              <ElScrollbar class={"w-full h-full bg-gray-1 dark:bg-dark"}>
                 {configStore.showHeader ? <HeaderWrapper /> : null}
                 {this.$slots.default?.()}
               </ElScrollbar>
@@ -91,7 +91,7 @@ const Tag = defineComponent({
         return (
           <>
             <div style={{ height: "100vh" }}>
-              <ElScrollbar class={"w-full h-full bg-gray-1 dark:bg-gray-9"}>
+              <ElScrollbar class={"w-full h-full bg-gray-1 dark:bg-dark"}>
                 {configStore.showHeader ? <HeaderWrapper /> : null}
                 {this.$slots.default?.()}
               </ElScrollbar>
@@ -114,7 +114,7 @@ const Tag = defineComponent({
 
             <div class={"flex"} style={{ height: "calc(100vh - 60px)" }}>
               {configStore.showSide ? <BaseSide /> : null}
-              <ElScrollbar class={"w-full h-full bg-gray-1 dark:bg-gray-9"}>
+              <ElScrollbar class={"w-full h-full bg-gray-1 dark:bg-dark"}>
                 {this.$slots.default?.()}
               </ElScrollbar>
             </div>

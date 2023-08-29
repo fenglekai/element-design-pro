@@ -51,12 +51,12 @@ onMounted(() => {
           windowStore.screenWidth < 768
         "
       />
-      <div v-if="windowStore.screenWidth < 768" style="cursor: pointer" @click="handleExpand">
-        <i
-          v-if="drawer"
-          inline-flex
-          i="ep-fold"
-        />
+      <div
+        v-if="windowStore.screenWidth < 768"
+        style="cursor: pointer"
+        @click="handleExpand"
+      >
+        <i v-if="drawer" inline-flex i="ep-fold" />
         <i v-else inline-flex i="ep-expand" />
       </div>
     </div>
@@ -73,7 +73,7 @@ onMounted(() => {
       v-else
       :config="configStore.headerMenu"
       mode="horizontal"
-      :style="{ width: 'calc(60%)' }"
+      :style="{ width: 'calc(60%)', borderBottom: 'none' }"
       @select="handleSelect"
       :router="!configStore.isMixMenu"
     />

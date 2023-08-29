@@ -16,9 +16,9 @@ const targetSetting = () => {
 
 // 黑暗主题切换
 const handleDark = (bool: boolean) => {
-  toggleDark(bool)
+  toggleDark(bool);
   setEpColor(configStore.primaryColor, bool);
-}
+};
 
 // 主题色
 const checkColor = (e: MouseEvent | any) => {
@@ -137,7 +137,11 @@ const copyConfig = () => {
 </script>
 
 <template>
-  <div id="config-setting" @click="targetSetting">
+  <div
+    id="config-setting"
+    :style="drawer ? { right: '300px' } : {}"
+    @click="targetSetting"
+  >
     <ElIcon size="24"><Setting /></ElIcon>
   </div>
   <ElDrawer v-model="drawer" title="默认配置" :size="300">
@@ -386,7 +390,7 @@ const copyConfig = () => {
   position: fixed;
   top: 12rem;
   right: 0;
-  z-index: 1;
+  z-index: 999;
   width: 3.5rem;
   height: 3.5rem;
   border-top-left-radius: 5px;

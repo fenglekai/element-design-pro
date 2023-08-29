@@ -7,3 +7,15 @@ declare module "*.vue" {
   export default component;
 }
 declare module 'element-china-area-data';
+
+interface ImportMetaEnv {
+  readonly BASE_URL: sting
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}
+
+interface Window {
+  _axiosPromiseArr: Array<any>;
+}
