@@ -8,6 +8,9 @@ import viteCompression from "vite-plugin-compression";
 import ElementPlus from "unplugin-element-plus/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import AutoImport from "unplugin-auto-import/vite";
+import IconsResolver from "unplugin-icons/resolver";
+import Icons from "unplugin-icons/vite";
 
 // 导入基础配置
 import config from "./src/config/index";
@@ -92,8 +95,22 @@ export default ({ mode }: ConfigEnv): UserConfig => {
           ElementPlusResolver({
             importStyle: "sass",
           }),
+          IconsResolver({
+            enabledCollections: ["ep"],
+          }),
         ],
         dts: "src/components.d.ts",
+      }),
+      AutoImport({
+        imports: ["vue"],
+        resolvers: [
+          ElementPlusResolver(),
+        ],
+
+        dts: path.resolve(pathSrc, "auto-imports.d.ts"),
+      }),
+      Icons({
+        autoInstall: true,
       }),
 
       // https://github.com/antfu/unocss

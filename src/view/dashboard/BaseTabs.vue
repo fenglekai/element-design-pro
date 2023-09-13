@@ -75,10 +75,10 @@ const option = {
 </script>
 
 <template>
-  <ElTabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
+  <ElTabs v-model="activeName" class="tabs" @tab-click="handleClick">
     <ElTabPane name="first">
       <template #label>
-        <div :style="{ width: '10rem',height: '8rem' }">
+        <div :style="{ width: '10rem', padding: '0 0 20px 10px' }">
           <div :style="{ display: 'inline-block', width: '50%' }">
             <p text-5 m-0>Stores 0</p>
             <p text-4 m-0>转换率</p>
@@ -99,9 +99,9 @@ const option = {
     </ElTabPane>
     <ElTabPane label="Config" name="second">
       <template #label>
-        <div :style="{ width: '10rem' }">
+        <div :style="{ width: '10rem', padding: '0 0 20px 10px' }">
           <div :style="{ display: 'inline-block', width: '50%' }">
-            <p text-5 m-0>Stores 0</p>
+            <p text-5 m-0>Stores 1</p>
             <p text-4 m-0>转换率</p>
             <p text-6 m-0>80%</p>
           </div>
@@ -120,9 +120,9 @@ const option = {
     </ElTabPane>
     <ElTabPane name="third">
       <template #label>
-        <div :style="{ width: '10rem' }">
+        <div :style="{ width: '10rem', padding: '0 0 20px 10px' }">
           <div :style="{ display: 'inline-block', width: '50%' }">
-            <p text-5 m-0>Stores 0</p>
+            <p text-5 m-0>Stores 2</p>
             <p text-4 m-0>转换率</p>
             <p text-6 m-0>45%</p>
           </div>
@@ -141,9 +141,9 @@ const option = {
     </ElTabPane>
     <ElTabPane name="fourth">
       <template #label>
-        <div :style="{ width: '10rem' }">
+        <div :style="{ width: '10rem', padding: '0 0 20px 10px' }">
           <div :style="{ display: 'inline-block', width: '50%' }">
-            <p text-5 m-0>Stores 0</p>
+            <p text-5 m-0>Stores 3</p>
             <p text-4 m-0>转换率</p>
             <p text-6 m-0>75%</p>
           </div>
@@ -162,9 +162,9 @@ const option = {
     </ElTabPane>
     <ElTabPane name="five">
       <template #label>
-        <div :style="{ width: '10rem' }">
+        <div :style="{ width: '10rem', padding: '0 0 20px 10px' }">
           <div :style="{ display: 'inline-block', width: '50%' }">
-            <p text-5 m-0>Stores 0</p>
+            <p text-5 m-0>Stores 4</p>
             <p text-4 m-0>转换率</p>
             <p text-6 m-0>30%</p>
           </div>
@@ -185,4 +185,8 @@ const option = {
   </ElTabs>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.tabs :deep(.ep-tabs__item) {
+  height: auto;
+}
+</style>

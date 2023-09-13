@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, reactive, ref, watch } from "vue";
-import { Upload } from "@element-plus/icons-vue";
+import { reactive, ref } from "vue";
 import avatarImg from "~/assets/avatar.png";
 import { UploadRequestOptions } from "element-plus";
 import { regionData } from "element-china-area-data";
@@ -29,8 +28,6 @@ const uploadImg = (options: UploadRequestOptions) => {
 function onSubmit() {
   console.log("submit!");
 }
-
-
 </script>
 
 <template>
@@ -54,7 +51,7 @@ function onSubmit() {
               <el-upload action="upload" :http-request="uploadImg">
                 <template #trigger>
                   <el-button
-                    ><el-icon><Upload /></el-icon>更换头像</el-button
+                    ><el-icon><IEpUpload /></el-icon>更换头像</el-button
                   >
                 </template>
               </el-upload>
@@ -128,7 +125,7 @@ function onSubmit() {
             <el-upload action="upload" :http-request="uploadImg">
               <template #trigger>
                 <el-button
-                  ><el-icon><Upload /></el-icon>更换头像</el-button
+                  ><el-icon><IEpUpload /></el-icon>更换头像</el-button
                 >
               </template>
             </el-upload>

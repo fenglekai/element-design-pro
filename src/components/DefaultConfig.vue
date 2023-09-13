@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-import { Setting, Check } from "@element-plus/icons-vue";
 import { isDark, toggleDark } from "~/composables";
 import { useConfigStore } from "~/store";
 import { ElMessage } from "element-plus";
@@ -142,9 +141,9 @@ const copyConfig = () => {
     :style="drawer ? { right: '300px' } : {}"
     @click="targetSetting"
   >
-    <ElIcon size="24"><Setting /></ElIcon>
+    <ElIcon size="24"><IEpSetting /></ElIcon>
   </div>
-  <ElDrawer v-model="drawer" title="默认配置" :size="300">
+  <ElDrawer v-model="drawer" title="默认配置" :size="300" @close="drawer = false">
     <div mb-4>
       <h3 class="setting-title">整体风格设置</h3>
       <div flex>
@@ -154,7 +153,7 @@ const copyConfig = () => {
           transition="ep-fade-in-linear"
         >
           <div class="white-theme" @click="handleDark(false)">
-            <ElIcon class="theme-check" v-show="!isDark"><Check /></ElIcon>
+            <ElIcon class="theme-check" v-show="!isDark"><IEpCheck /></ElIcon>
           </div>
         </ElTooltip>
         <ElTooltip
@@ -163,7 +162,7 @@ const copyConfig = () => {
           transition="ep-fade-in-linear"
         >
           <div class="dark-theme" @click="handleDark(true)">
-            <ElIcon class="theme-check" v-show="isDark"><Check /></ElIcon>
+            <ElIcon class="theme-check" v-show="isDark"><IEpCheck /></ElIcon>
           </div>
         </ElTooltip>
       </div>
@@ -187,7 +186,7 @@ const copyConfig = () => {
             class="theme-color-block"
             :style="{ backgroundColor: '#41b883' }"
           >
-            <ElIcon><Check /></ElIcon>
+            <ElIcon><IEpCheck /></ElIcon>
           </div>
         </ElTooltip>
         <ElTooltip
@@ -284,7 +283,7 @@ const copyConfig = () => {
         >
           <div class="side-theme" @click="setNavbar(0)">
             <ElIcon class="theme-check dark:color-dark" v-show="navbarType == 0"
-              ><Check
+              ><IEpCheck
             /></ElIcon>
           </div>
         </ElTooltip>
@@ -295,7 +294,7 @@ const copyConfig = () => {
         >
           <div class="header-theme" @click="setNavbar(1)">
             <ElIcon class="theme-check dark:color-dark" v-show="navbarType == 1"
-              ><Check
+              ><IEpCheck
             /></ElIcon>
           </div>
         </ElTooltip>
@@ -306,7 +305,7 @@ const copyConfig = () => {
         >
           <div class="mix-theme" @click="setNavbar(2)">
             <ElIcon class="theme-check dark:color-dark" v-show="navbarType == 2"
-              ><Check
+              ><IEpCheck
             /></ElIcon>
           </div>
         </ElTooltip>
@@ -390,7 +389,7 @@ const copyConfig = () => {
   position: fixed;
   top: 12rem;
   right: 0;
-  z-index: 999;
+  z-index: 9999;
   width: 3.5rem;
   height: 3.5rem;
   border-top-left-radius: 5px;

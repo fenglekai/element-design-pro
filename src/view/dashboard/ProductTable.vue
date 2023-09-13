@@ -1,13 +1,5 @@
 <script lang="ts" setup>
 import {} from "vue";
-import {
-  Files,
-  ChatLineRound,
-  Platform,
-  Document,
-  Setting,
-  Present,
-} from "@element-plus/icons-vue";
 </script>
 
 <template>
@@ -16,7 +8,7 @@ import {
       <tr class="base-tr">
         <td p-5 border-r-1 border-b-1 class="base-td">
           <div flex items-center gap-2>
-            <el-icon><ChatLineRound /></el-icon>
+            <el-icon><IEpChatLineRound /></el-icon>
             <span class="header">消息列表体验优化</span>
           </div>
           <div class="text">
@@ -29,7 +21,7 @@ import {
         </td>
         <td p-5 border-r-1 border-b-1 class="base-td">
           <div flex items-center gap-2>
-            <el-icon><Platform /></el-icon>
+            <el-icon><IEpPlatform /></el-icon>
             <span class="header">管理平台</span>
           </div>
           <div class="text">
@@ -42,7 +34,7 @@ import {
         </td>
         <td p-5 border-b-1 class="base-td">
           <div flex items-center gap-2>
-            <el-icon><Document /></el-icon>
+            <el-icon><IEpDocument /></el-icon>
             <span class="header">文档中心</span>
           </div>
           <div class="text">
@@ -57,7 +49,7 @@ import {
       <tr class="base-tr">
         <td p-5 border-r-1 class="base-td">
           <div flex items-center gap-2>
-            <el-icon><Files /></el-icon>
+            <el-icon><IEpFiles /></el-icon>
             <span class="header">五月日常小需求</span>
           </div>
           <div class="text">
@@ -70,7 +62,7 @@ import {
         </td>
         <td p-5 border-r-1 class="base-td">
           <div flex items-center gap-2>
-            <el-icon><Setting /></el-icon>
+            <el-icon><IEpSetting /></el-icon>
             <span class="header">功能效能</span>
           </div>
           <div class="text">
@@ -83,7 +75,7 @@ import {
         </td>
         <td p-5>
           <div flex items-center gap-2>
-            <el-icon><Present /></el-icon>
+            <el-icon><IEpPresent /></el-icon>
             <span class="header">智能运营中心</span>
           </div>
           <div class="text">
