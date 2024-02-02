@@ -20,6 +20,7 @@ const DeepMenu = defineComponent({
     const configMenu = (child: any) => {
       const result: any = [];
       child.map((item: any) => {
+        const icon = item.icon ? shallowRef(h(item.icon.setup())) : null;
         if (item.group) {
           result.push(
             <ElMenuItemGroup title={item.title}>
@@ -34,7 +35,7 @@ const DeepMenu = defineComponent({
               v-slots={{
                 title: () => (
                   <>
-                    {item.icon ? <ElIcon>{item.icon.render()}</ElIcon> : null}
+                    <ElIcon>{icon?.value}</ElIcon>
                     <span>{item.title}</span>
                   </>
                 ),
@@ -46,7 +47,7 @@ const DeepMenu = defineComponent({
         } else {
           result.push(
             <ElMenuItem index={item.index} disabled={item.disabled}>
-              {item.icon ? <ElIcon>{item.icon.render()}</ElIcon> : null}
+              <ElIcon>{icon?.value}</ElIcon>
               <span>{item.title}</span>
             </ElMenuItem>
           );
@@ -55,8 +56,8 @@ const DeepMenu = defineComponent({
       return result;
     };
     const handleSelect = (key: string, keyPath: string[]) => {
-      console.log(key, keyPath)
-    }
+      console.log(key, keyPath);
+    };
 
     return () => (
       <ElMenu

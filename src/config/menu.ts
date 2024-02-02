@@ -1,4 +1,3 @@
-import { DefineComponent } from "vue";
 import {
   Location,
   Document,
@@ -6,9 +5,12 @@ import {
   Setting,
   WarnTriangleFilled
 } from "@element-plus/icons-vue";
+import type {DefineComponent, ComponentOptionsMixin, VNodeProps, AllowedComponentProps, ComponentCustomProps, ExtractPropTypes} from 'vue'
+
+type icon = DefineComponent<{}, {}, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{}>>, {}, {}>;
 
 type Menu = {
-  icon?: DefineComponent;
+  icon?: icon;
   title: string;
   index: string;
   disabled?: boolean;
@@ -16,7 +18,7 @@ type Menu = {
 };
 
 type SubMenu = {
-  icon?: DefineComponent;
+  icon?: icon;
   title: string;
   index: string;
   disabled?: boolean;
